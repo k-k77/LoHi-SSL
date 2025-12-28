@@ -3,10 +3,6 @@ from torch import nn
 import torch.nn.functional as F
 
 
-# dual contrastive loss function
-
-# contrastive loss1: intra-cell contrastive loss
-# Takes embeddings of an anchor sample, a positive sample and a negative sample
 class intra_cell_loss(nn.Module):
 
     def __init__(self, margin):
@@ -20,8 +16,6 @@ class intra_cell_loss(nn.Module):
         return losses.mean() if size_average else losses.sum()
 
 
-# contrastive loss2: inter-cell contrastive loss
-# pull similar node pairs closer and push dissimilar node pairs apart
 class inter_cell_loss(nn.Module):
 
     def __init__(self,tau):
