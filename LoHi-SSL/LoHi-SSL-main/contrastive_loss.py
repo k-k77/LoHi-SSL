@@ -24,25 +24,6 @@ class InstanceLoss(nn.Module):
         mask = mask.bool()
         return mask
     
-    # def select_sim_negative(self, sim, batch_size):
-    #     sim_matric = sim
-    #     value = float("-inf")
-    #     s = float("+inf")
-    #     for i in range(batch_size):
-    #         for j in range(batch_size):
-    #             if i == j:
-    #                 continue
-    #             else:
-    #                 if sim_matric[i, j] > s:
-    #                     sim_matric[i, j] = value
-    #                     sim_matric[i, j + batch_size] = value
-    #                     sim_matric[j, i] = value
-    #                     sim_matric[j, i + batch_size] = value
-    #                     sim_matric[i + batch_size, j] = value
-    #                     sim_matric[i + batch_size, j + batch_size] = value
-    #                     sim_matric[j + batch_size, i] = value
-    #                     sim_matric[j + batch_size, i + batch_size] = value
-    #     return sim_matric
 
     def forward(self, z_i, z_j):
         N = 2 * self.batch_size
