@@ -37,47 +37,12 @@ def load_rna_data(data_dir,lbls_dir):  # data_dir 是 RNA 数据的路径，lbls
     lbls = np.load(lbls_dir)
     return fts, lbls
 
-# # 数据加载和特征提取函数
-# def load_rna_data(data_dir, lbls_dir):
-#     fts = np.load(data_dir)
-#     lbls = np.load(lbls_dir)
-#
-#     print('Original RNA feature shape:', fts.shape)  # RNA 数据的形状
-#
-#     # 将特征转换为 PyTorch 张量并进行特征提取
-#     fts_tensor = torch.tensor(fts, dtype=torch.float32)
-#     feature_extractor = FeatureInfoExtractor(fts.shape[1])
-#     fts = feature_extractor(fts_tensor)  # 使用相同的变量名 fts 来存储增强后的数据
-#
-#     print("Enhanced RNA feature shape:", fts.shape)
-#
-#     return fts.detach().numpy(), lbls
-
-# # load Protein modality data
-# def load_adt_data(data_dir):
-#     fts = np.load(data_dir)
-#     print('protein fts shape:',fts.shape)
-#     return fts
-
 
 # load ATAC modality data
 def load_atac_data(data_dir):
     fts = np.load(data_dir)
     print('atac fts shape:',fts.shape)
     return fts
-# load ATAC modality data with feature extraction
-# def load_atac_data(data_dir):
-#     fts = np.load(data_dir)
-#     print('Original ATAC feature shape:', fts.shape)  # ATAC 数据的形状
-#
-#     # 将特征转换为 PyTorch 张量并进行特征提取
-#     fts_tensor = torch.tensor(fts, dtype=torch.float32)
-#     feature_extractor = FeatureInfoExtractor(fts.shape[1])
-#     fts = feature_extractor(fts_tensor)  # 使用相同的变量名 fts 来存储增强后的数据
-#
-#     print("Enhanced ATAC feature shape:", fts.shape)
-#
-#     return fts.detach().numpy()
 
 
 def load_feature_and_H(data_dir_rna,
