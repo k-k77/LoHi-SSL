@@ -33,15 +33,6 @@ def numpy_to_torch(a, sparse=False):
     return a
 
 
-# the reconstruction function
-# def reconstruction_loss(X, A_norm, X_hat, Z_hat, A_hat):
-#     loss_ae = F.mse_loss(X_hat, X)
-#     loss_w = F.mse_loss(Z_hat, torch.spmm(A_norm, X))
-#     loss_a = F.mse_loss(A_hat, A_norm.to_dense())
-#     loss_igae = loss_w + opt.args.alpha_value * loss_a
-#     loss_rec = loss_ae + loss_igae
-#     return loss_rec
-
 def reconstruction_loss(X, A_norm, X_hat, Z_hat, A_hat):
     # 计算重建损失
     loss_ae = F.mse_loss(X_hat, X)
