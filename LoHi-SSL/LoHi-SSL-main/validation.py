@@ -13,7 +13,6 @@ import scanpy as sc
 import anndata as ad
 import matplotlib.pyplot as plt
 from operator import itemgetter
-# 从命令行中指定数据集名称和验证方式，并根据不同的数据集名称自动设置对应的类别标签映射
 parser = argparse.ArgumentParser()  # 用于解析命令行参数
 
 parser.add_argument("--dataset", type=str, default='sim1', help='used dataset name')
