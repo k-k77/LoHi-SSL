@@ -16,13 +16,13 @@ parser.add_argument('--lbls_dir', default='./input/Ma-2020-1/lbls.npy', help='pa
 # 2. 训练控制参数
 # ==========================================
 parser.add_argument('--seed', type=int, default=42)
-parser.add_argument('--device', type=str, default='cpu')
+parser.add_argument('--device', type=str, default='Gpu')
 
 # Epoch 设置
 parser.add_argument('--rec_epoch', type=int, default=30)
 parser.add_argument('--fus_epoch', type=int, default=100)
-parser.add_argument('--max_epoch', type=int, default=100, help='Used in main loop') # main.py 使用这个
-parser.add_argument('--epoch', type=int, default=500) # 保留原参数以防其他文件调用
+parser.add_argument('--max_epoch', type=int, default=100, help='Used in main loop')
+parser.add_argument('--epoch', type=int, default=500) 
 
 parser.add_argument('--print_freq', type=int, default=5)
 parser.add_argument('--lr', type=float, default=1e-3)
@@ -35,10 +35,10 @@ parser.add_argument('--pretrain', type=bool, default=False)
 # 3. 损失权重参数 (Loss Weights)
 # ==========================================
 # 对比学习权重
-parser.add_argument('--lambda1', type=float, default=2.0) # KL loss
-parser.add_argument('--lambda2', type=float, default=0.1) # Contrastive 1
-parser.add_argument('--lambda3', type=float, default=2.0) # Contrastive 2
-parser.add_argument('--lambda4', type=float, default=1.5) # Contrastive 3 (HighOrder)
+parser.add_argument('--lambda1', type=float, default=2.0) 
+parser.add_argument('--lambda2', type=float, default=0.1) 
+parser.add_argument('--lambda3', type=float, default=2.0) 
+parser.add_argument('--lambda4', type=float, default=1.5)
 
 # 重构与结构权重
 parser.add_argument('--alpha1', type=float, default=1.0) # REC1
@@ -55,7 +55,7 @@ parser.add_argument('--n_d1', type=int, default=100)
 parser.add_argument('--n_d2', type=int, default=100)
 parser.add_argument('--n_z', type=int, default=20)
 parser.add_argument('--n_hid', type=int, default=128) # HighOrder hidden dim
-parser.add_argument('--dropout', type=float, default=0.1)
+parser.add_argument('--dropout', type=float, default=***)
 
 # AE structure
 parser.add_argument('--ae_n_enc_1', type=int, default=256)
@@ -72,7 +72,6 @@ parser.add_argument('--gae_n_dec_2', type=int, default=256)
 # ==========================================
 # 5. 图构建与 HighOrder 参数 (Graph & Sampling)
 # ==========================================
-parser.add_argument('--m_prob', type=float, default=1.0)
 parser.add_argument('--K_neigs', type=int, default=100)
 parser.add_argument('--positive_neighbor_num', type=int, default=1000)
 parser.add_argument('--p_tri', type=float, default=0.8)
@@ -102,3 +101,4 @@ parser.add_argument('--ari', type=float, default=0)
 parser.add_argument('--ami', type=float, default=0)
 
 args = parser.parse_args()
+
