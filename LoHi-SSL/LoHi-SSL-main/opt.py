@@ -24,12 +24,6 @@ parser.add_argument('--fus_epoch', type=int, default=100)
 parser.add_argument('--max_epoch', type=int, default=100, help='Used in main loop')
 parser.add_argument('--epoch', type=int, default=500) 
 
-parser.add_argument('--print_freq', type=int, default=5)
-parser.add_argument('--lr', type=float, default=1e-3)
-parser.add_argument('--weight_decay', type=float, default=0.0005)
-parser.add_argument('--milestones', type=int, default=[100])
-parser.add_argument('--gamma', type=float, default=0.9)
-parser.add_argument('--pretrain', type=bool, default=False)
 
 # ==========================================
 # 3. 损失权重参数 (Loss Weights)
@@ -37,15 +31,12 @@ parser.add_argument('--pretrain', type=bool, default=False)
 # 对比学习权重
 parser.add_argument('--lambda1', type=float, default=2.0) 
 parser.add_argument('--lambda2', type=float, default=0.1) 
-parser.add_argument('--lambda3', type=float, default=2.0) 
-parser.add_argument('--lambda4', type=float, default=1.5)
+
 
 # 重构与结构权重
 parser.add_argument('--alpha1', type=float, default=1.0) # REC1
 parser.add_argument('--alpha2', type=float, default=1.0) # REC2
-parser.add_argument('--alpha_value', type=float, default=0.1) # Balance factor in rec loss
-parser.add_argument('--beta', type=float, default=2.0)   # intra_cell_loss
-parser.add_argument('--tau', type=float, default=1.0)    # temperature
+
 
 # ==========================================
 # 4. 模型结构参数 (Model Architecture)
@@ -76,10 +67,7 @@ parser.add_argument('--K_neigs', type=int, default=100)
 parser.add_argument('--positive_neighbor_num', type=int, default=1000)
 parser.add_argument('--p_tri', type=float, default=0.8)
 parser.add_argument('--p_bi', type=float, default=0.15)
-parser.add_argument('--edge_type', type=str, default='euclid')
-parser.add_argument('--is_probH', type=bool, default=False)
-parser.add_argument('--use_rna', type=bool, default=True)
-parser.add_argument('--use_atac', type=bool, default=True)
+
 
 # ==========================================
 # 6. LowOrder 数据加载参数
