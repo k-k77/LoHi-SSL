@@ -107,11 +107,6 @@ def train(model1, model2, data_dict, args):
 
     N = fts.shape[0]
 
-    # 初始化优化器
-    optimizer1 = Adam(model1.parameters(), lr=args.lr)
-    optimizer2 = Adam(model2.parameters(), lr=args.lr)
-    scheduler1 = optim.lr_scheduler.MultiStepLR(optimizer1, milestones=args.milestones, gamma=args.gamma)
-    scheduler2 = optim.lr_scheduler.MultiStepLR(optimizer2, milestones=args.milestones, gamma=args.gamma)
 
     # 损失函数
     instance_loss = InstanceLoss(batch_size=N, temperature=args.tau).to(device)
@@ -218,8 +213,7 @@ if __name__ == '__main__':
         edge_type=args.edge_type, use_rna=args.use_rna, use_atac=args.use_atac
     )
 
-    G = generate_G_from_H(H)
-    H_tri, H_bi, H_single, H_none = generate_node_pair_sets(H_rna, H_atac)
+
 
     # 2. 处理标签
     if torch.is_tensor(lbls):
@@ -227,9 +221,6 @@ if __name__ == '__main__':
     else:
         labels_true = lbls
 
-    num_clusters = len(np.unique(labels_true))
-    args.n_clusters = num_clusters
-    opt.args.n_clusters = num_clusters
 
     # 3. 加载 LowOrder 数据
     X1, _, A1 = load_data(args.dataset, 'rna', args.method, args.k, show_details=False)
